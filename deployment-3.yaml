@@ -8,17 +8,31 @@ services:
         - ./hz/client:/configFolder
         - ./hz/ks:/ks
     environment:
-        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-ssl.xml -Djavax.net.ssl.keyStore=/ks/ks.jks
+        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-ssl.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456
     links:
         - "hazelcast:hazelcast"
     ports:
         - "5701"
 
+  hazelcast-client-no-ssl:
+      image: client:tls
+      depends_on:
+          - hazelcast
+      volumes:
+          - ./hz/client:/configFolder
+      environment:
+          - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client.xml
+      links:
+          - "hazelcast:hazelcast"
+      ports:
+          - "5701"
+
   hazelcast:
     image: hz:tls
     volumes:
         - ./hz/server:/configFolder
+        - ./hz/ks:/ks
     environment:
-        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl.xml
+        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456
     ports:
         - "5701"
