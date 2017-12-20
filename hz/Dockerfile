@@ -4,7 +4,7 @@ ENV HZ_HOME /opt/hazelcast/
 RUN mkdir -p $HZ_HOME
 WORKDIR $HZ_HOME
 # Download hazelcast jars from maven repo.
-ADD hazelcast-all-3.10-SNAPSHOT.jar $HZ_HOME
+ADD hazelcast-enterprise-all-3.10-SNAPSHOT.jar $HZ_HOME
 
 ADD server.sh /$HZ_HOME/server.sh
 RUN chmod +x /$HZ_HOME/server.sh

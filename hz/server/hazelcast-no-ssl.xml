@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hazelcast
-        xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.9.xsd"
+        xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.10.xsd"
         xmlns="http://www.hazelcast.com/schema/config"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
@@ -9,12 +9,17 @@
         <password>s3crEt</password>
     </group>
 
+    <license-key>ADD KEY</license-key>
+
     <network>
         <ssl enabled="false">
             <factory-class-name>com.hazelcast.nio.ssl.BasicSSLContextFactory</factory-class-name>
             <properties>
                 <property name="protocol">TLS</property>
             </properties>
+            <host-verification policy-class-name="com.hazelcast.nio.ssl.BasicHostVerifier">
+                <properties/>
+            </host-verification>
         </ssl>
     </network>
 </hazelcast>

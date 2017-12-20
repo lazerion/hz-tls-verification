@@ -1,0 +1,24 @@
+version: '2'
+services:
+  hazelcast-client:
+    image: client:tls
+    depends_on:
+        - hazelcast
+    volumes:
+        - ./hz/client:/configFolder
+        - ./hz/ks:/ks
+    environment:
+        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-ssl.xml -Djavax.net.ssl.keyStore=/ks/ks.jks
+    links:
+        - "hazelcast:hazelcast"
+    ports:
+        - "5701"
+
+  hazelcast:
+    image: hz:tls
+    volumes:
+        - ./hz/server:/configFolder
+    environment:
+        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl.xml
+    ports:
+        - "5701"

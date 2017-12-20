@@ -15,7 +15,7 @@
         <cluster-members>
             <address>hazelcast</address>
         </cluster-members>
-        <ssl enabled="false">
+        <ssl enabled="true">
             <factory-class-name>com.hazelcast.nio.ssl.BasicSSLContextFactory</factory-class-name>
             <properties>
                 <property name="protocol">TLS</property>
