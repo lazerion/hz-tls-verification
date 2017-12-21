@@ -6,3 +6,4 @@
 #$KEYTOOL_CMD -alias cn-ip -dname "uid=cn-is-not-first, CN=127.0.0.1, O=Hazelcast"
 
 keytool -genkey -alias hz -keyalg RSA -keystore keystore.jks -validity 360 -dname "CN=172.20.1.1/255.255.0.0"
+keytool -genkey -alias hz -keyalg RSA -keystore keystore-invalid.jks -validity 360 -dname "CN=192.20.1.1/255.255.0.0"

@@ -12,12 +12,12 @@
     <license-key></license-key>
 
     <network>
-        <ssl enabled="false">
+        <ssl enabled="true">
             <factory-class-name>com.hazelcast.nio.ssl.BasicSSLContextFactory</factory-class-name>
             <properties>
                 <property name="protocol">TLS</property>
             </properties>
-            <host-verification policy-class-name="com.hazelcast.nio.ssl.BasicHostVerifier">
+            <host-verification policy-class-name="com.hazelcast.tls.verifier.NoopVerifier">
                 <properties/>
             </host-verification>
         </ssl>
