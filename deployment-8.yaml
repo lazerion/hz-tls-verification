@@ -1,0 +1,24 @@
+version: '2'
+services:
+  hazelcast-client:
+    image: client:tls
+    depends_on:
+        - hazelcast
+    volumes:
+        - ./hz/client:/configFolder
+        - ./hz/ks:/ks
+    environment:
+        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-no-verifier.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456 -Djavax.net.ssl.trustStore=/ks/truststore.jks -Djavax.net.ssl.trustStorePassword=123456
+    links:
+        - "hazelcast:hazelcast"
+    ports:
+        - "5701"
+  hazelcast:
+    image: hz:tls
+    volumes:
+        - ./hz/server:/configFolder
+        - ./hz/ks:/ks
+    environment:
+        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl-enabled-on-server.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456 -Djavax.net.ssl.trustStore=/ks/truststore.jks -Djavax.net.ssl.trustStorePassword=123456
+    ports:
+        - "5701"
