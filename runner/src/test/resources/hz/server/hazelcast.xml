@@ -9,6 +9,6 @@
         <password>s3crEt</password>
     </group>
 
-    <license-key>ADD KEY</license-key>
+    <license-key></license-key>
 
 </hazelcast>
