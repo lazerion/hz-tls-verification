@@ -15,6 +15,7 @@ services:
         - "hazelcast:hazelcast"
     ports:
         - "5701"
+        - "4567:4567"
 
   hazelcast:
     image: hz:tls

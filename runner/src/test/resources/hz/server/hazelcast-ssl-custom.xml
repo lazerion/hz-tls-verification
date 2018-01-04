@@ -17,7 +17,7 @@
             <properties>
                 <property name="protocol">TLS</property>
             </properties>
-            <host-verification policy-class-name="com.hazelcast.tls.verifier.NoopVerifier">
+            <host-verification policy-class-name="com.hazelcast.tls.verifier.NoopVerifier"  enabled-on-server="true">
                 <properties/>
             </host-verification>
         </ssl>

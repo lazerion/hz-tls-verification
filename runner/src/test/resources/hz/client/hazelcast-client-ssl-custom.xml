@@ -4,7 +4,7 @@
         xmlns="http://www.hazelcast.com/schema/client-config"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <license-key>ADD</license-key>
+    <license-key></license-key>
     <!-- properties will be passed via -D... JAVA_OPTS -->
     <!-- see hazelcast.yml -->
     <group>

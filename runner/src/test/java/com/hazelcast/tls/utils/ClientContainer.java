@@ -26,10 +26,8 @@ public class ClientContainer {
 
         try {
             Response response = client.newCall(request).execute();
-            logger.info("Response Cluster{}", response);
             return Integer.valueOf(response.body().string());
         } catch (Exception ex){
-            logger.info(ex.getMessage());
             return 0;
         }
     }
@@ -41,10 +39,8 @@ public class ClientContainer {
 
         try {
             Response response = client.newCall(request).execute();
-            logger.info("Response Statistics {}", response);
             return Integer.valueOf(response.body().string());
         } catch (Exception ex){
-            logger.info(ex.getMessage());
             return -1;
         }
     }

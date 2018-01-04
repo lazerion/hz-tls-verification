@@ -22,4 +22,5 @@ function createKeystore
   rm $1.crt
 }
 
-createKeystore keystore.jks "cn=172.20.0.1/255.255.0.0"
+#createKeystore keystore.jks "cn=172.20.0.1/255.255.0.0"
+createKeystore invalid.jks "cn=10.0.0.1/255.255.0.0"

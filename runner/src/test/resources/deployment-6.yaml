@@ -12,7 +12,7 @@ services:
         - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-ssl.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456
     links:
         - "hazelcast:hazelcast"
-        - "hazelcast-no-ssl:hazelcast-no-ssl"
+        - "hazelcast-invalid-ssl:hazelcast-no-ssl"
     ports:
         - "5701"
         - "4567:4567"
@@ -27,12 +27,12 @@ services:
     ports:
         - "5701"
 
-  hazelcast-no-ssl:
-      image: hz:tls
-      volumes:
-          - ./hz/server:/configFolder
-          - ./hz/ks:/ks
-      environment:
-          - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-no-ssl.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456
-      ports:
-          - "5702"
+  hazelcast-invalid-ssl:
+    image: hz:tls
+    volumes:
+        - ./hz/server:/configFolder
+        - ./hz/ks:/ks
+    environment:
+        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl.xml -Djavax.net.ssl.keyStore=/ks/invalid.jks -Djavax.net.ssl.keyStorePassword=123456
+    ports:
+        - "5702"

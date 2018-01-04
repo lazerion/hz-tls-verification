@@ -63,7 +63,7 @@
                                     <type>${project.packaging}</type>
                                 </artifactItem>
                             </artifactItems>
-                            <outputDirectory>${project.parent.basedir}/hz/verifier/</outputDirectory>
+                            <outputDirectory>${project.parent.basedir}/runner/src/test/resources/hz/verifier/</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
