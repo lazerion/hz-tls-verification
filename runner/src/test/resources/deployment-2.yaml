@@ -8,7 +8,7 @@ services:
     volumes:
         - ./hz/client:/configFolder
     environment:
-        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-no-ssl.xml
+        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-no-ssl.xml -Dhazelcast.enterprise.license.key=$ENTERPRISE_KEY
     links:
         - "hazelcast:hazelcast"
     ports:
@@ -20,6 +20,6 @@ services:
     volumes:
         - ./hz/server:/configFolder
     environment:
-        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-no-ssl.xml
+        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-no-ssl.xml -Dhazelcast.enterprise.license.key=$ENTERPRISE_KEY
     ports:
         - "5701"

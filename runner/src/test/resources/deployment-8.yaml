@@ -8,7 +8,7 @@ services:
         - ./hz/client:/configFolder
         - ./hz/ks:/ks
     environment:
-        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-no-verifier.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456 -Djavax.net.ssl.trustStore=/ks/truststore.jks -Djavax.net.ssl.trustStorePassword=123456
+        - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client-no-verifier.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456 -Djavax.net.ssl.trustStore=/ks/truststore.jks -Djavax.net.ssl.trustStorePassword=123456 -Dhazelcast.enterprise.license.key=$ENTERPRISE_KEY
     links:
         - "hazelcast:hazelcast"
     ports:
@@ -20,6 +20,6 @@ services:
         - ./hz/server:/configFolder
         - ./hz/ks:/ks
     environment:
-        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl-enabled-on-server.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456 -Djavax.net.ssl.trustStore=/ks/truststore.jks -Djavax.net.ssl.trustStorePassword=123456
+        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast-ssl-enabled-on-server.xml -Djavax.net.ssl.keyStore=/ks/keystore.jks -Djavax.net.ssl.keyStorePassword=123456 -Djavax.net.ssl.trustStore=/ks/truststore.jks -Djavax.net.ssl.trustStorePassword=123456 -Dhazelcast.enterprise.license.key=$ENTERPRISE_KEY
     ports:
         - "5701"

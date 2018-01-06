@@ -8,7 +8,4 @@
         <name>hz-tls</name>
         <password>s3crEt</password>
     </group>
-
-    <license-key></license-key>
-
 </hazelcast>
